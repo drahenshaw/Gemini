@@ -1,4 +1,6 @@
 #include "Engine.h"
+#include "IO/Keyboard.h"
+#include "IO/Mouse.h"
 
 //Initialize Static Members
 int Engine::SCREEN_WIDTH = 1024;
@@ -11,15 +13,17 @@ double Engine::get_dT()
 	return dT_;
 }
 
-Engine::Engine()
-{
-
-}
-
 Engine::~Engine()
 {
 	//Terminate the GLFW Library on ShutDown
 	glfwTerminate();
+}
+
+Engine & Engine::get_instance()
+{
+	//Return Instance to Singleton Engine
+	static Engine instance;
+	return instance;
 }
 
 bool Engine::StartUp(const char * windowTitle, Error * error)
@@ -52,8 +56,8 @@ bool Engine::StartUp(const char * windowTitle, Error * error)
 	glfwSwapInterval(1);
 
 	//Set Callbacks
-	//
-	//
+	glfwSetKeyCallback(window_, Keyboard::KeyCallBack);
+	glfwSetCursorPosCallback(window_, Mouse::MousePositionCallBack);
 	//
 
 	

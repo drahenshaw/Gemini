@@ -1,5 +1,7 @@
 #include "Engine/Engine.h"
 #include "Error.h"
+#include "Engine/IO/Keyboard.h"
+#include "Engine/IO/Mouse.h"
 
 
 void testError(Error * error)
@@ -18,9 +20,28 @@ int main(void)
 	std::cout << myError.get_errorDescription();
 	std::cout << myError.get_errorName();
 
-	Engine *gemini = new Engine();
-	gemini->StartUp("TestEngine", &myError);
+	Engine & gemini = gemini.get_instance();
+	gemini.StartUp("TestEngine", &myError);
 
+	while (true)
+	{
+		gemini.Update();
+		
+		if (Keyboard::KeyDown(GLFW_KEY_SPACE) == true)
+		{
+			std::cout << "SPACE" << std::endl;
+			std::cout << Keyboard::Key(GLFW_KEY_SPACE);
+		}
+
+		if (Keyboard::KeyUp(GLFW_KEY_SPACE) == true)
+		{
+			std::cout << "UP" << std::endl; std::cout << Keyboard::Key(GLFW_KEY_SPACE);
+		}
+
+		
+
+		
+	}
 
 }
 

@@ -16,6 +16,10 @@ public:
 		
 	~Engine();
 
+	static Engine & get_instance();
+	Engine(Engine const&)		  = delete;
+	void operator=(Engine const&) = delete;
+
 	bool StartUp(const char * windowTitle, Error * error);
 	void Update();
 	void BeginRender();
@@ -27,8 +31,7 @@ private:
 	float prev_dT_;
 
 private:
-	Engine();
-
+	Engine() {};
 
 };
 
