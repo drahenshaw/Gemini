@@ -18,29 +18,53 @@ void Mouse::MousePositionCallBack(GLFWwindow * window, double x_pos, double y_po
 
 void Mouse::MouseButtonCallBack(GLFWwindow * window, int button, int action, int mods)
 {
+	//Invalid Mouse Button
+	if (button < 0) return;
+	//Button Press
+	if (action != GLFW_RELEASE && buttons_[button] == false)
+	{
+		buttons_down_[button] = true;
+		buttons_up_  [button] = false;
+	}
+	//Button Release
+	if (action == GLFW_RELEASE && buttons_[button] == true)
+	{
+		buttons_down_[button] = false;
+		buttons_up_  [button] = true;
+	}
+
+	//Toggle Button Array Status
+	buttons_[button] = action != GLFW_RELEASE;
 }
 
 double Mouse::get_mouse_x()
 {
-	return 0.0;
+	return mouse_x_;
 }
 
 double Mouse::get_mouse_y()
 {
-	return 0.0;
+	return mouse_y_;
 }
 
+//Gets Button Status
 bool Mouse::Button(int button)
 {
-	return false;
+	return buttons_[button];
 }
 
+//Tests for ButtonDown and sets false after
 bool Mouse::ButtonDown(int button)
 {
-	return false;
+	bool state = buttons_down_[button];
+	buttons_down_[button] = false;
+	return state;
 }
 
+//Tests for ButtonUp and sets false after
 bool Mouse::ButtonUp(int button)
 {
-	return false;
+	bool state = buttons_up_[button];
+	buttons_up_[button] = false;	
+	return state;
 }

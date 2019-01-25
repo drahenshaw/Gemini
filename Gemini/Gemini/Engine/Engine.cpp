@@ -55,12 +55,12 @@ bool Engine::StartUp(const char * windowTitle, Error * error)
 	//Reduce flickering - Vsync
 	glfwSwapInterval(1);
 
-	//Set Callbacks
+	//Set IO Callbacks
 	glfwSetKeyCallback(window_, Keyboard::KeyCallBack);
 	glfwSetCursorPosCallback(window_, Mouse::MousePositionCallBack);
-	//
+	glfwSetMouseButtonCallback(window_, Mouse::MouseButtonCallBack);
 
-	
+	//Window Setup
 	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	//Find halfway point on the screen and set window position
 	int xPos = (mode->width - SCREEN_WIDTH) / 2; 
