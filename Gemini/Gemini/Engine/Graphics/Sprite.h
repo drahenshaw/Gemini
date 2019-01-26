@@ -3,6 +3,7 @@
 
 #include "GLFW/glfw3.h"
 #include "Texture.h"
+#include "../Math/Vector3.h"
 #include "../../Error.h"
 
 
@@ -11,13 +12,13 @@ class Sprite
 public:
 	Sprite();
 	Sprite(std::string file_path, Error * error);
-	Sprite(std::string file_path, /*Vector 3 position,*/ Error * error);
+	Sprite(std::string file_path, Vector3 position, Error * error);
 
 	void Update();
 	void Render();
 
-	void SpeedBy(float x);
-	void SpeedTo(float x);
+	void ChangeSpeedBy(float x);
+	void ChangeSpeedTo(float x);
 
 	void MoveTo(Vector3 v);
 	void MoveBy(Vector3 v);
@@ -37,10 +38,10 @@ public:
 	void FlipHorizontal();
 	void FlipVertical();
 
-	Vector3* getPos();
-	float*   getRot();
-	Vector3* getScale();
-	Vector3* getSize();
+	Vector3* get_position();
+	float*   get_rotation();
+	Vector3* get_scale();
+	Vector3* get_size();
 
 private:
 	Texture texture_;
