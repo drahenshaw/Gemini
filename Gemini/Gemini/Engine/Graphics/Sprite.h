@@ -29,8 +29,8 @@ public:
 	void MoveDown();
 
 
-	void RotateTo(float rot);
-	void RotateBy(float rot);
+	void RotateTo(float rotation);
+	void RotateBy(float rotation);
 
 	void setScale(float globalScale);
 	void setScale(Vector3 v);

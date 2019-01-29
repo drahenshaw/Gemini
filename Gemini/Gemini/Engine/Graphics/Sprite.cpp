@@ -57,6 +57,7 @@ void Sprite::Render()
 	//Begin and End allow for texture coordinates to be updated.
 	glBegin(GL_QUADS);
 	{
+		//Assigning the texture vertices to the corners of the image
 		glTexCoord2f(0, 0);		glVertex2i(-texture_.get_width() / 2, -texture_.get_height() / 2);
 		glTexCoord2f(1, 0);		glVertex2i( texture_.get_width() / 2, -texture_.get_height() / 2);
 		glTexCoord2f(1, 1);		glVertex2i( texture_.get_width() / 2,  texture_.get_height() / 2);
@@ -64,55 +65,71 @@ void Sprite::Render()
 	}
 	glEnd();
 
+	//Disable 2D Texture Operations
 	glDisable(GL_TEXTURE_2D);
 }
 
+//Adjust speed by a relative amount
 void Sprite::ChangeSpeedBy(float x)
 {
+	speed_ += x;
 }
 
+//Adjust speed to an absolute amount
 void Sprite::ChangeSpeedTo(float x)
 {
+	speed_ = x;
 }
 
+//Move to a given position
 void Sprite::MoveTo(Vector3 v)
 {
+	position_ = v;
 }
 
 void Sprite::MoveBy(Vector3 v)
 {
+	position_ = position_ + (v * Engine::get_dT());
 }
 
 void Sprite::MoveLeft()
 {
+	position_ = position_ - Vector3(speed_ * Engine::get_dT(), 0, 0);
 }
 
 void Sprite::MoveRight()
 {
+	position_ = position_ + Vector3(speed_ * Engine::get_dT(), 0, 0);
 }
 
 void Sprite::MoveUp()
 {
+	position_ = position_ + Vector3(0, speed_ * Engine::get_dT(), 0);
 }
 
 void Sprite::MoveDown()
 {
+	position_ = position_ - Vector3(0, speed_ * Engine::get_dT(), 0);
 }
 
-void Sprite::RotateTo(float rot)
+void Sprite::RotateTo(float rotation)
 {
+	rotation_ = rotation;
 }
 
-void Sprite::RotateBy(float rot)
+void Sprite::RotateBy(float rotation)
 {
+	rotation_ = rotation_  + (rotation * Engine::get_dT());
 }
 
 void Sprite::setScale(float globalScale)
 {
+	scale_ = Vector3(globalScale);
 }
 
 void Sprite::setScale(Vector3 v)
 {
+	scale_ = v;
 }
 
 void Sprite::FlipHorizontal()
