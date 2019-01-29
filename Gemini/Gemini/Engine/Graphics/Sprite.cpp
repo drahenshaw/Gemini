@@ -46,7 +46,7 @@ void Sprite::Render()
 	glBindTexture(GL_TEXTURE_2D, texture_.get_id());
 	glLoadIdentity();
 
-	//Matrix Operations are done in ...
+	//Matrix Operations are done in reverse order to properly center them
 	//TRANSLATE -> ROTATE -> SCALE
 	glTranslatef(position_.x_, position_.y_, 0);
 	glRotatef(rotation_, 0, 0, 1);
@@ -54,6 +54,7 @@ void Sprite::Render()
 
 	//Rendering
 	glColor4f(1, 1, 1, 1);
+	//Begin and End allow for texture coordinates to be updated.
 	glBegin(GL_QUADS);
 	{
 		glTexCoord2f(0, 0);		glVertex2i(-texture_.get_width() / 2, -texture_.get_height() / 2);
