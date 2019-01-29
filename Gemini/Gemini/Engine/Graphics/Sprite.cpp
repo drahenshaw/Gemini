@@ -134,28 +134,30 @@ void Sprite::setScale(Vector3 v)
 
 void Sprite::FlipHorizontal()
 {
+	scale_.x_ = -scale_.x_;
 }
 
 void Sprite::FlipVertical()
 {
+	scale_.y_ = -scale_.y_;
 }
 
 Vector3 * Sprite::get_position()
 {
-	return nullptr;
+	return &position_;
 }
 
 float * Sprite::get_rotation()
 {
-	return nullptr;
+	return &rotation_;
 }
 
 Vector3 * Sprite::get_scale()
 {
-	return nullptr;
+	return &scale_;
 }
 
 Vector3 * Sprite::get_size()
 {
-	return nullptr;
+	return &size_;
 }
