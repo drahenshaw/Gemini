@@ -13,7 +13,7 @@ namespace Math
 	Vector3 RotatePoint(Vector3 point, Vector3 pivot, float rotate);
 	float FindMax(std::vector<float> x);
 	float FindMin(std::vector<float> x);
-	float Absolute(float x);
+	float AbsoluteValue(float x);
 }
 
 #endif 

@@ -4,6 +4,8 @@
 #include "Engine/IO/Mouse.h"
 #include "Engine/Math/Rectangle.h"
 
+#include "Engine/Math/Math.h"
+
 
 void testError(Error * error)
 {
@@ -39,9 +41,7 @@ int main(void)
 			std::cout << "UP" << std::endl; std::cout << Keyboard::Key(GLFW_KEY_SPACE);
 		}
 
-		Rectangle testConstructors = Rectangle(Vector3(1, 1, 1), Vector3(1, 1, 1));
 		
-
 		
 	}
 

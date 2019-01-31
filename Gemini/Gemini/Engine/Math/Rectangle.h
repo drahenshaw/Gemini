@@ -3,6 +3,10 @@
 
 #include "Vector3.h"
 
+enum VertIndex
+{
+	UPPERLEFT, LOWERLEFT, UPPERRIGHT, LOWERRIGHT
+};
 
 class Rectangle
 {
@@ -11,7 +15,7 @@ class Rectangle
 		Vector3 lower_left_vertex_;
 		Vector3 upper_right_vertex_;
 		Vector3 lower_right_vertex_;
-	};
+	};	
 
 public:
 	Rectangle();
@@ -24,7 +28,8 @@ public:
 
 	void set_size(Vector3 size);
 
-	const struct Vertices get_vertices();	   	  
+	const struct Vertices get_vertices();	
+	void set_vertices(const Vertices vertices, const VertIndex index, const Vector3 modifier);
 
 private:
 	void UpdateVertices();

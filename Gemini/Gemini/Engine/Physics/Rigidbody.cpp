@@ -9,14 +9,14 @@ bool Rigidbody::IsColliding(const Rigidbody & rigidbody_a, const Rigidbody rigid
 
 	float a_max = 0.0, a_min = 0.0, b_max = 0.0, b_min = 0.0;
 	
-	Vector3 a_upper_left  = rectangle_a.get_vertices().upper_left_vertex_  + *rigidbody_a.postition_;
-	Vector3 a_lower_left  = rectangle_a.get_vertices().lower_left_vertex_  + *rigidbody_a.postition_;
-	Vector3 a_upper_right = rectangle_a.get_vertices().upper_right_vertex_ + *rigidbody_a.postition_;
-	Vector3 a_lower_right = rectangle_a.get_vertices().lower_right_vertex_ + *rigidbody_a.postition_;
-	Vector3 b_upper_left  = rectangle_b.get_vertices().upper_left_vertex_  + *rigidbody_b.postition_;
-	Vector3 b_lower_left  = rectangle_b.get_vertices().lower_left_vertex_  + *rigidbody_b.postition_;
-	Vector3 b_upper_right = rectangle_b.get_vertices().upper_right_vertex_ + *rigidbody_b.postition_;
-	Vector3 b_lower_right = rectangle_b.get_vertices().lower_right_vertex_ + *rigidbody_b.postition_;
+	Vector3 a_upper_left  = rectangle_a.get_vertices().upper_left_vertex_  + *rigidbody_a.position_;
+	Vector3 a_lower_left  = rectangle_a.get_vertices().lower_left_vertex_  + *rigidbody_a.position_;
+	Vector3 a_upper_right = rectangle_a.get_vertices().upper_right_vertex_ + *rigidbody_a.position_;
+	Vector3 a_lower_right = rectangle_a.get_vertices().lower_right_vertex_ + *rigidbody_a.position_;
+	Vector3 b_upper_left  = rectangle_b.get_vertices().upper_left_vertex_  + *rigidbody_b.position_;
+	Vector3 b_lower_left  = rectangle_b.get_vertices().lower_left_vertex_  + *rigidbody_b.position_;
+	Vector3 b_upper_right = rectangle_b.get_vertices().upper_right_vertex_ + *rigidbody_b.position_;
+	Vector3 b_lower_right = rectangle_b.get_vertices().lower_right_vertex_ + *rigidbody_b.position_;
 
 	Vector3 axis_one   = a_upper_right - a_upper_left;
 	Vector3 axis_two   = a_upper_right - a_lower_right;
@@ -77,14 +77,14 @@ Rigidbody::Rigidbody()
 	gravity_  = 0;
 }
 
-Rigidbody::Rigidbody(float friction, float gravity, float * rotation, Vector3 * position, Vector3 * size, Vector3 * scale, Vector3 * velocity, Rectangle bounds)
+Rigidbody::Rigidbody(float friction, float gravity, float * rotation, Vector3 * position, Vector3 * size, Vector3 * scale, Vector3 velocity, Rectangle bounds)
 {
 	friction_  = friction;
 	gravity_   = gravity;
 	rotation_  = rotation;	
-	last_rotation = *rotation;
+	last_rotation_ = *rotation;
 
-	postition_ = position;
+	position_ = position;
 	size_      = size;
 	scale_     = scale;
 	velocity_  = velocity;
@@ -93,25 +93,59 @@ Rigidbody::Rigidbody(float friction, float gravity, float * rotation, Vector3 * 
 
 void Rigidbody::Update()
 {
-	velocity_->x_ *= friction_;
-	velocity_->y_ -= gravity_;
-	
-	
+	velocity_.x_ *= friction_;
+	velocity_.y_ -= gravity_;
+
+	*position_ = *position_ + (velocity_ * Engine::get_dT());
+
+	if (last_rotation_ != *rotation_)
+	{
+		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), UPPERLEFT,  Math::RotatePoint(bounding_rectangle_.get_vertices().upper_left_vertex_,  Vector3(0), *rotation_ - last_rotation_));
+		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), LOWERLEFT,  Math::RotatePoint(bounding_rectangle_.get_vertices().lower_left_vertex_,  Vector3(0), *rotation_ - last_rotation_));
+		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), UPPERRIGHT, Math::RotatePoint(bounding_rectangle_.get_vertices().upper_right_vertex_, Vector3(0), *rotation_ - last_rotation_));
+		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), LOWERRIGHT, Math::RotatePoint(bounding_rectangle_.get_vertices().upper_right_vertex_, Vector3(0), *rotation_ - last_rotation_));
+	}
 }
 
 void Rigidbody::Render(Vector3 color)
 {
+	glLoadIdentity();
+	glTranslatef(position_->x_, position_->y_, position_->z_);
+	glColor4f(color.x_, color.y_, color.z_, 1);
+
+	glBegin(GL_LINES);
+	{
+		// Draw Rigidbody Left Side
+		glVertex2f(bounding_rectangle_.get_vertices().upper_left_vertex_.x_,  bounding_rectangle_.get_vertices().upper_left_vertex_.y_);
+		glVertex2f(bounding_rectangle_.get_vertices().lower_left_vertex_.x_,  bounding_rectangle_.get_vertices().lower_left_vertex_.y_);
+
+		// Draw Rigidbody Bottom Side		
+		glVertex2f(bounding_rectangle_.get_vertices().lower_left_vertex_.x_,  bounding_rectangle_.get_vertices().lower_left_vertex_.y_ );
+		glVertex2f(bounding_rectangle_.get_vertices().lower_right_vertex_.x_, bounding_rectangle_.get_vertices().lower_right_vertex_.y_);
+
+		// Draw Rigidbody Right Side
+		glVertex2f(bounding_rectangle_.get_vertices().lower_right_vertex_.x_, bounding_rectangle_.get_vertices().lower_right_vertex_.y_);
+		glVertex2f(bounding_rectangle_.get_vertices().upper_right_vertex_.x_, bounding_rectangle_.get_vertices().upper_right_vertex_.y_);
+
+		// Draw Rigidbody Top Side
+		glVertex2f(bounding_rectangle_.get_vertices().upper_right_vertex_.x_, bounding_rectangle_.get_vertices().upper_right_vertex_.y_);
+		glVertex2f(bounding_rectangle_.get_vertices().upper_left_vertex_.x_,  bounding_rectangle_.get_vertices().upper_left_vertex_.y_ );
+
+	}
+	glEnd();
 }
 
 void Rigidbody::AddForce(Vector3 force)
 {
+	velocity_ += force;
 }
 
 void Rigidbody::set_velocity(Vector3 velocity)
 {
+	velocity_ = velocity;
 }
 
 Vector3 Rigidbody::get_velocity()
 {
-	return Vector3();
+	return velocity_;
 }

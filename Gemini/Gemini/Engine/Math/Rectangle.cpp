@@ -47,6 +47,32 @@ const struct Rectangle::Vertices Rectangle::get_vertices()
 	return vertices_;
 }
 
+void Rectangle::set_vertices(const Vertices vertices, const VertIndex index, const Vector3 modifier)
+{
+	switch (index)
+	{
+	case UPPERLEFT:
+		vertices_.upper_left_vertex_ = modifier;
+		break;
+
+	case LOWERLEFT:
+		vertices_.lower_left_vertex_ = modifier;
+		break;
+
+	case UPPERRIGHT:
+		vertices_.upper_right_vertex_ = modifier;
+		break;
+
+	case LOWERRIGHT:
+		vertices_.lower_right_vertex_ = modifier;
+		break;
+	default:
+		// Could log error for invalid enum value here?
+		break;
+	}
+
+}
+
 void Rectangle::UpdateVertices()
 {
 	// Vertices are found given the center position of the rectangle, add/sub half the size to reach the corners.
