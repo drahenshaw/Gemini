@@ -5,6 +5,7 @@
 #include "Engine/Math/Rectangle.h"
 
 #include "Engine/Math/Math.h"
+#include "Engine/Audio/Audio.h"
 
 
 void testError(Error * error)
@@ -41,6 +42,8 @@ int main(void)
 			std::cout << "UP" << std::endl; std::cout << Keyboard::Key(GLFW_KEY_SPACE);
 		}
 
+		Audio * audio_engine = new Audio;
+		audio_engine->Initialize();
 		
 		
 	}
