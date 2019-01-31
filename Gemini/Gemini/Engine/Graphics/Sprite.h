@@ -54,10 +54,4 @@ private:
 	Vector3 size_;
 };
 
-
-
-
-
-};
-
 #endif

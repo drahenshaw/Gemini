@@ -17,6 +17,7 @@ public:
 	Vector3   operator-  (const Vector3 & rhs);
 	Vector3   operator*  (const Vector3 & rhs);
 	Vector3 & operator=  (const Vector3 & rhs);	
+	Vector3 & operator+= (const Vector3 & rhs);
 	bool      operator== (const Vector3 & rhs);
 	bool      operator!= (const Vector3 & rhs);
 

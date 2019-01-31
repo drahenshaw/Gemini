@@ -98,6 +98,16 @@ Vector3 & Vector3::operator=(const Vector3 & rhs)
 	x_ = rhs.x_;
 	y_ = rhs.y_;
 	z_ = rhs.z_;
+	return *this;
+}
+
+//Useful for relative position updating
+Vector3 & Vector3::operator+=(const Vector3 & rhs)
+{
+	x_ += rhs.x_;
+	y_ += rhs.y_;
+	z_ += rhs.z_;
+	return *this;
 }
 
 //Compare x, y, z values for equivalence

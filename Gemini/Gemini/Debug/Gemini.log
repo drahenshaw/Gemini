@@ -1,4 +1,6 @@
-﻿  Engine.cpp
-  Mouse.cpp
-  Generating Code...
+﻿  Vector3.cpp
+soil.lib(image_DXT.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(image_DXT.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+soil.lib(image_helper.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(image_helper.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+soil.lib(SOIL.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(SOIL.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+soil.lib(stb_image_aug.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(stb_image_aug.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
   Gemini.vcxproj -> C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\Gemini.exe
