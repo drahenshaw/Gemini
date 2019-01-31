@@ -1,13 +1,2 @@
-﻿  Sprite.cpp
-c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(92): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(97): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(102): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(107): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(112): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(122): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Rectangle.cpp
-  Vector3.cpp
-  Rigidbody.cpp
-  Source.cpp
-  Generating Code...
+﻿  Rigidbody.cpp
   Gemini.vcxproj -> C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\Gemini.exe
