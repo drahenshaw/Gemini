@@ -26,5 +26,12 @@ public:
 	float z_;
 };
 
+inline const Vector3 & operator+ (const Vector3 & lhs, const Vector3 & rhs)
+{
+	(lhs.x_ + rhs.x_);
+	(lhs.y_ + rhs.y_);
+	(lhs.z_ + rhs.z_);
+	return lhs;
+}
 
 #endif 

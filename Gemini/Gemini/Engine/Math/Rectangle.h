@@ -3,8 +3,16 @@
 
 #include "Vector3.h"
 
+
 class Rectangle
 {
+	struct Vertices {
+		Vector3 upper_left_vertex_;
+		Vector3 lower_left_vertex_;
+		Vector3 upper_right_vertex_;
+		Vector3 lower_right_vertex_;
+	};
+
 public:
 	Rectangle();
 	Rectangle(Vector3 size);
@@ -16,21 +24,16 @@ public:
 
 	void set_size(Vector3 size);
 
-	   	  
+	const struct Vertices get_vertices();	   	  
 
 private:
 	void UpdateVertices();
 
 private:
-	Vector3 upper_left_vertex_;	
-	Vector3 lower_left_vertex_;
-	Vector3 upper_right_vertex_;
-	Vector3 lower_right_vertex_;
-
+	
 	Vector3 position_;
-	Vector3 size_;
-
-
+	Vector3 size_; 
+	struct Vertices vertices_;
 };
 
 #endif

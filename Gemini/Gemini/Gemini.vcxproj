@@ -27,6 +27,7 @@
     <ClCompile Include="Engine\IO\Mouse.cpp" />
     <ClCompile Include="Engine\Math\Rectangle.cpp" />
     <ClCompile Include="Engine\Math\Vector3.cpp" />
+    <ClCompile Include="Engine\Physics\Rigidbody.cpp" />
     <ClCompile Include="Error.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
@@ -38,6 +39,7 @@
     <ClInclude Include="Engine\IO\Mouse.h" />
     <ClInclude Include="Engine\Math\Rectangle.h" />
     <ClInclude Include="Engine\Math\Vector3.h" />
+    <ClInclude Include="Engine\Physics\Rigidbody.h" />
     <ClInclude Include="Error.h" />
   </ItemGroup>
   <ItemGroup>
