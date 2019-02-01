@@ -11,12 +11,15 @@ class Audio
 public:
 	
 	void Initialize();
-
+	void LoadWAVFile();
 
 
 
 private:
-
+	ALCdevice  * audio_device_;
+	ALCcontext * audio_context_;
+	ALuint audio_buffers_[kNUMBUFFERS];
+	ALuint audio_source_;
 
 
 };
