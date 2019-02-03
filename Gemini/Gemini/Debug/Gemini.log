@@ -1,2 +1,5 @@
 ﻿  Audio.cpp
-  Gemini.vcxproj -> C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\Gemini.exe
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\audio\audio.h(21): error C2065: 'kNUMBUFFERS': undeclared identifier
+  Source.cpp
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\audio\audio.h(21): error C2065: 'kNUMBUFFERS': undeclared identifier
+  Generating Code...
