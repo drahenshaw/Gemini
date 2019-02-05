@@ -10,7 +10,7 @@
 class Rigidbody
 {
 public:
-	static bool IsColliding(const Rigidbody & rigidbody_a, const Rigidbody rigidbody_b);
+	static bool IsColliding(const Rigidbody & rigidbody_a, const Rigidbody & rigidbody_b);
 
 	Rigidbody();
 	Rigidbody(float friction, float gravity, float * rotation, Vector3 * position, Vector3 * size, Vector3 * scale, Vector3 velocity, Rectangle bounds);

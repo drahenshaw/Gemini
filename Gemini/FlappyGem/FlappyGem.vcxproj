@@ -164,6 +164,7 @@
   <ItemGroup>
     <ClInclude Include="Flapper.h" />
     <ClInclude Include="Pipe.h" />
+    <ClInclude Include="PipeManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

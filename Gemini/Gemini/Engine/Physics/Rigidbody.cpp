@@ -1,6 +1,6 @@
 #include "Rigidbody.h"
 
-bool Rigidbody::IsColliding(const Rigidbody & rigidbody_a, const Rigidbody rigidbody_b)
+bool Rigidbody::IsColliding(const Rigidbody & rigidbody_a, const Rigidbody & rigidbody_b)
 {
 	// Collision Model being used is the Separating Axis Theorem
 	// Start with Bounding Rectangles of each Rigidbody
