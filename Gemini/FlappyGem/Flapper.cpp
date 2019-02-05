@@ -68,7 +68,7 @@ Sprite & Flapper::get_sprite()
 	return sprite_;
 }
 
-Rigidbody & Flapper::get_rigitbody()
+Rigidbody & Flapper::get_rigidbody()
 {
 	return rigidbody_;
 }

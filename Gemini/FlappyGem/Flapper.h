@@ -15,7 +15,6 @@ public:
 
 	void Update();
 	void Render();
-
 	void Flap();
 	void Reset();
 	
@@ -25,8 +24,6 @@ public:
 private:
 	void HandleInput();
 
-
-
 private:
 	Sprite sprite_;
 	Rigidbody rigidbody_;
@@ -34,9 +31,6 @@ private:
 	float max_rotation_;
 	float min_rotation_;
 	float flap_force_;
-
 };
 
-
 #endif // !GEMINI_FLAPPER
-
