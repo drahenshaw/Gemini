@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClCompile Include="Flapper.cpp" />
     <ClCompile Include="FlappyGem.cpp" />
+    <ClCompile Include="Pipe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gemini\Gemini.vcxproj">
@@ -162,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Flapper.h" />
+    <ClInclude Include="Pipe.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

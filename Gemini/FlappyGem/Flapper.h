@@ -19,7 +19,7 @@ public:
 	void Reset();
 	
 	Sprite & get_sprite();
-	Rigidbody & get_rigitbody();
+	Rigidbody & get_rigidbody();
 
 private:
 	void HandleInput();
