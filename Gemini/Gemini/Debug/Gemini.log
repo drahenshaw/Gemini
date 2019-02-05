@@ -1,5 +1,8 @@
 ﻿  Audio.cpp
-c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\audio\audio.h(21): error C2065: 'kNUMBUFFERS': undeclared identifier
   Source.cpp
-c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\audio\audio.h(21): error C2065: 'kNUMBUFFERS': undeclared identifier
   Generating Code...
+soil.lib(image_DXT.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(image_DXT.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+soil.lib(image_helper.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(image_helper.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+soil.lib(SOIL.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(SOIL.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+soil.lib(stb_image_aug.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(stb_image_aug.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+  Gemini.vcxproj -> C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\Gemini.exe

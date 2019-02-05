@@ -5,6 +5,7 @@
 #include "alc.h"
 #include <stdio.h>
 
+constexpr int kNUMBUFFERS = 2;
 
 class Audio
 {
@@ -20,7 +21,6 @@ private:
 	ALCcontext * audio_context_;
 	ALuint audio_buffers_[kNUMBUFFERS];
 	ALuint audio_source_;
-
 
 };
 

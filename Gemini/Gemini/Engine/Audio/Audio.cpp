@@ -1,7 +1,5 @@
 #include "Audio.h"
 
-constexpr int kNUMBUFFERS = 2;
-
 void Audio::Initialize()
 {
 	// Select the preferred device and make current context
