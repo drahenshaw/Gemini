@@ -1,4 +1,21 @@
 ﻿  Audio.cpp
+  Engine.cpp
+  Sprite.cpp
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(92): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(97): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(102): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(107): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(112): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(122): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Texture.cpp
+  Keyboard.cpp
+  Mouse.cpp
+  Math.cpp
+  Rectangle.cpp
+  Vector3.cpp
+  Rigidbody.cpp
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\physics\rigidbody.cpp(99): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Error.cpp
   Source.cpp
   Generating Code...
 soil.lib(image_DXT.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(image_DXT.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
