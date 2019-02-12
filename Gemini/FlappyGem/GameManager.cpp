@@ -34,6 +34,11 @@ void GameManager::PlayGame(Error * error = 0)
 {
 	while (true)
 	{
+		if (Keyboard::KeyDown(GLFW_KEY_ESCAPE))
+		{
+			break;
+		}
+
 		game_engine_->Update();
 
 		switch (state_)
