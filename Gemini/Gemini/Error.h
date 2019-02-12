@@ -13,7 +13,8 @@ public:
 	{
 		kOK = 0,
 		kInitializationError = 1,
-		kWindowConstructionError = 2
+		kWindowConstructionError = 2,
+		kUnhandledGameState = 3
 	};
 
 public:

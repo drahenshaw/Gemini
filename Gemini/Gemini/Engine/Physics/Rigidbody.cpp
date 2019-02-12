@@ -100,10 +100,10 @@ void Rigidbody::Update()
 
 	if (last_rotation_ != *rotation_)
 	{
-		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), UPPERLEFT,  Math::RotatePoint(bounding_rectangle_.get_vertices().upper_left_vertex_,  Vector3(0), *rotation_ - last_rotation_));
-		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), LOWERLEFT,  Math::RotatePoint(bounding_rectangle_.get_vertices().lower_left_vertex_,  Vector3(0), *rotation_ - last_rotation_));
-		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), UPPERRIGHT, Math::RotatePoint(bounding_rectangle_.get_vertices().upper_right_vertex_, Vector3(0), *rotation_ - last_rotation_));
-		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), LOWERRIGHT, Math::RotatePoint(bounding_rectangle_.get_vertices().upper_right_vertex_, Vector3(0), *rotation_ - last_rotation_));
+		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), VertIndex::UPPERLEFT,  Math::RotatePoint(bounding_rectangle_.get_vertices().upper_left_vertex_,  Vector3(0), *rotation_ - last_rotation_));
+		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), VertIndex::LOWERLEFT,  Math::RotatePoint(bounding_rectangle_.get_vertices().lower_left_vertex_,  Vector3(0), *rotation_ - last_rotation_));
+		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), VertIndex::UPPERRIGHT, Math::RotatePoint(bounding_rectangle_.get_vertices().upper_right_vertex_, Vector3(0), *rotation_ - last_rotation_));
+		bounding_rectangle_.set_vertices(bounding_rectangle_.get_vertices(), VertIndex::LOWERRIGHT, Math::RotatePoint(bounding_rectangle_.get_vertices().upper_right_vertex_, Vector3(0), *rotation_ - last_rotation_));
 	}
 }
 

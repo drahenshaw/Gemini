@@ -3,9 +3,13 @@
 
 #include "Vector3.h"
 
-enum VertIndex
+enum class VertIndex
 {
-	UPPERLEFT, LOWERLEFT, UPPERRIGHT, LOWERRIGHT
+	UPPERLEFT,
+	LOWERLEFT,
+	UPPERRIGHT,
+	LOWERRIGHT,
+	COUNT
 };
 
 class Rectangle

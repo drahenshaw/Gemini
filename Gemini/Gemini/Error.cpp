@@ -56,6 +56,7 @@ std::ostream & operator<<(std::ostream & outstream, const Error::EngineErrors va
 		CONVERT_ENUMTOSTRING(Error::EngineErrors::kOK);
 		CONVERT_ENUMTOSTRING(Error::EngineErrors::kInitializationError);
 		CONVERT_ENUMTOSTRING(Error::EngineErrors::kWindowConstructionError);
+		CONVERT_ENUMTOSTRING(Error::EngineErrors::kUnhandledGameState);
 	}
 #undef  CONVERT_ENUMTOSTRING
 

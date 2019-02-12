@@ -51,19 +51,19 @@ void Rectangle::set_vertices(const Vertices vertices, const VertIndex index, con
 {
 	switch (index)
 	{
-	case UPPERLEFT:
+	case VertIndex::UPPERLEFT:
 		vertices_.upper_left_vertex_ = modifier;
 		break;
 
-	case LOWERLEFT:
+	case VertIndex::LOWERLEFT:
 		vertices_.lower_left_vertex_ = modifier;
 		break;
 
-	case UPPERRIGHT:
+	case VertIndex::UPPERRIGHT:
 		vertices_.upper_right_vertex_ = modifier;
 		break;
 
-	case LOWERRIGHT:
+	case VertIndex::LOWERRIGHT:
 		vertices_.lower_right_vertex_ = modifier;
 		break;
 	default:
