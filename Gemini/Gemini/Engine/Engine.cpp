@@ -118,3 +118,8 @@ void Engine::EndRender()
 	//Swaps front and back buffers for the window for specified interval
 	glfwSwapBuffers(window_); 
 }
+
+bool Engine::should_window_close()
+{
+	return glfwWindowShouldClose(window_);
+}

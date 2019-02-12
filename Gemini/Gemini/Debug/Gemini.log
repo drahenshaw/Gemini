@@ -1,2 +1,33 @@
-﻿  Engine.cpp
+﻿  Audio.cpp
+  Engine.cpp
+  Sprite.cpp
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(92): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(97): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(102): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(107): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(112): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\graphics\sprite.cpp(122): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Texture.cpp
+  Keyboard.cpp
+  Mouse.cpp
+  Math.cpp
+  Rectangle.cpp
+  Vector3.cpp
+  Rigidbody.cpp
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\engine\physics\rigidbody.cpp(99): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Error.cpp
+  Flapper.cpp
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\flappygem\flapper.cpp(20): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\flappygem\flapper.cpp(61): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  FlappyGem.cpp
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\flappygem\flappygem.cpp(9): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  GameManager.cpp
+  Pipe.cpp
+  PipeManager.cpp
+c:\users\david\onedrive\post-bacc cs\c++\gemini\gemini\gemini\flappygem\pipemanager.cpp(99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+soil.lib(image_DXT.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(image_DXT.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+soil.lib(image_helper.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(image_helper.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+soil.lib(SOIL.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(SOIL.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
+soil.lib(stb_image_aug.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'soil.lib(stb_image_aug.obj)' or at 'C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\SOIL.pdb'; linking object as if no debug info
   Gemini.vcxproj -> C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\Debug\Gemini.exe

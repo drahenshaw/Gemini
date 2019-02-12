@@ -30,9 +30,9 @@ void GameManager::StartUp()
 	state_ = GameState::START;
 }
 
-void GameManager::PlayGame(Error * error = 0)
+void GameManager::PlayGame(Error * error)
 {
-	while (true)
+	while (!game_engine_->should_window_close())
 	{
 		if (Keyboard::KeyDown(GLFW_KEY_ESCAPE))
 		{

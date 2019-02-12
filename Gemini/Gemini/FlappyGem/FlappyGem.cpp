@@ -1,12 +1,16 @@
-// FlappyGem.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-#include "../Gemini/Engine/Engine.h"
+#pragma once
 #include <iostream>
+#include <time.h>
+#include "GameManager.h"
 
-int main()
+
+int main(void)
 {
-    std::cout << "Hello World!\n"; 
+	srand(time(NULL));
+	static GameManager & gameManager = GameManager::get_instance();
+	gameManager.StartUp();
+	gameManager.PlayGame();
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

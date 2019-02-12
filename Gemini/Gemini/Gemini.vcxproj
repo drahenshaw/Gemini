@@ -31,7 +31,11 @@
     <ClCompile Include="Engine\Math\Vector3.cpp" />
     <ClCompile Include="Engine\Physics\Rigidbody.cpp" />
     <ClCompile Include="Error.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="FlappyGem\Flapper.cpp" />
+    <ClCompile Include="FlappyGem\FlappyGem.cpp" />
+    <ClCompile Include="FlappyGem\GameManager.cpp" />
+    <ClCompile Include="FlappyGem\Pipe.cpp" />
+    <ClCompile Include="FlappyGem\PipeManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Audio\Audio.h" />
@@ -45,8 +49,14 @@
     <ClInclude Include="Engine\Math\Vector3.h" />
     <ClInclude Include="Engine\Physics\Rigidbody.h" />
     <ClInclude Include="Error.h" />
+    <ClInclude Include="FlappyGem\Flapper.h" />
+    <ClInclude Include="FlappyGem\GameManager.h" />
+    <ClInclude Include="FlappyGem\Header.h" />
+    <ClInclude Include="FlappyGem\Pipe.h" />
+    <ClInclude Include="FlappyGem\PipeManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FlappyGem\packages.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

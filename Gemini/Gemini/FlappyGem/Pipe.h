@@ -1,9 +1,9 @@
 #ifndef GEMINI_PIPE
 #define GEMINI_PIPE
 
-#include "../Gemini/Engine/Graphics/Sprite.h"
-#include "../Gemini/Engine/Physics/Rigidbody.h"
-#include "../Gemini/Engine/Math/Vector3.h"
+#include "../Engine/Graphics/Sprite.h"
+#include "../Engine/Physics/Rigidbody.h"
+#include "../Engine/Math/Vector3.h"
 
 class Pipe
 {

@@ -15,8 +15,8 @@ class PipeManager
 
 	struct SpawnPoint
 	{
-		float x;
-		float y;
+		int x;
+		int y;
 	};
 
 public:

@@ -1,11 +1,11 @@
 #ifndef GEMINI_FLAPPER
 #define GEMINI_FLAPPER
 
-#include "../Gemini/Engine/Physics/Rigidbody.h"
-#include "../Gemini/Engine/Graphics/Sprite.h"
-#include "../Gemini/Engine/Math/Rectangle.h"
-#include "../Gemini/Engine/IO/Keyboard.h"
-#include "../Gemini/Engine/IO/Mouse.h"
+#include "../Engine/Physics/Rigidbody.h"
+#include "../Engine/Graphics/Sprite.h"
+#include "../Engine/Math/Rectangle.h"
+#include "../Engine/IO/Keyboard.h"
+#include "../Engine/IO/Mouse.h"
 
 class Flapper
 {

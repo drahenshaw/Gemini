@@ -1,10 +1,10 @@
 #ifndef GEMINI_GAMEMANAGER
 #define GEMINI_GAMEMANAGER
 
-#include "../Gemini//Engine/Engine.h"
-#include "../Gemini/Engine/Graphics/Sprite.h"
-#include "../Gemini/Engine/IO/Keyboard.h"
-#include "../Gemini/Engine/IO/Mouse.h"
+#include "../Engine/Engine.h"
+#include "../Engine/Graphics/Sprite.h"
+#include "../Engine/IO/Keyboard.h"
+#include "../Engine/IO/Mouse.h"
 
 
 #include "Flapper.h"

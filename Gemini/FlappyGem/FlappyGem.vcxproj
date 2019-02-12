@@ -96,6 +96,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <AdditionalLibraryDirectories>C:\Users\david\OneDrive\Post-Bacc CS\C++\Gemini\Gemini\FlappyGem\Debug\Gemini.dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -152,27 +154,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Flapper.cpp" />
-    <ClCompile Include="FlappyGem.cpp" />
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="Pipe.cpp" />
-    <ClCompile Include="PipeManager.cpp" />
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Gemini\Gemini.vcxproj">
       <Project>{880825e8-b5f9-412b-8a1c-e43659ff1753}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Flapper.h" />
-    <ClInclude Include="GameManager.h" />
-    <ClInclude Include="Header.h" />
-    <ClInclude Include="Pipe.h" />
-    <ClInclude Include="PipeManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

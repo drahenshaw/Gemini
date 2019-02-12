@@ -37,7 +37,7 @@ void PipeManager::Update()
 		// On the last element determine if a new pipe should spawn - past half screen
 		if (i == pipes_.size() - 1)
 		{
-			if (pipes_[i]->get_positon_x < Engine::SCREEN_WIDTH - current_.x)
+			if (pipes_[i]->get_positon_x() < (Engine::SCREEN_WIDTH - current_.x))
 			{
 				CreatePipe();
 			}
