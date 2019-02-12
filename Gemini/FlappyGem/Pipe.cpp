@@ -107,3 +107,9 @@ Rigidbody Pipe::get_bottom_rigidbody()
 {
 	return bottom_rigidbody_;
 }
+
+void Pipe::set_gap(const float gap)
+{
+	gap_ = gap;
+}
+

@@ -27,6 +27,8 @@ public:
 	Rigidbody get_top_rigidbody();
 	Rigidbody get_bottom_rigidbody();
 
+	void set_gap(const float gap);
+
 private:
 	float gap_;
 	float speed_;

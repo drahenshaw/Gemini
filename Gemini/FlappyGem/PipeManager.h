@@ -41,6 +41,7 @@ private:
 	struct Separation speed_;
 	struct SpawnPoint min_max_spawn_y_;
 	int spawned_pipes_;
+	Error * error_;
 
 };
 
