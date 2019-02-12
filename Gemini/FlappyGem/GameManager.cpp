@@ -103,6 +103,11 @@ void GameManager::PlayGame(Error * error = 0)
 	}
 }
 
+void GameManager::WindowCloseCallback(GLFWwindow * window)
+{
+	set_game_state(GameState::EXIT);
+}
+
 void GameManager::set_game_state(const GameState & state)
 {
 	state_ = state;

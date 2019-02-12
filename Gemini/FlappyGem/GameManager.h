@@ -6,6 +6,7 @@
 #include "../Gemini/Engine/IO/Keyboard.h"
 #include "../Gemini/Engine/IO/Mouse.h"
 
+
 #include "Flapper.h"
 #include "PipeManager.h"
 
@@ -20,6 +21,7 @@ public:
 		START,
 		GAMEPLAY,
 		GAMEOVER,
+		EXIT,
 		COUNT
 	};
 
@@ -32,6 +34,7 @@ public:
 
 	void StartUp();
 	void PlayGame(Error * error = 0);
+	void WindowCloseCallback(GLFWwindow * window);
 
 private:
 	

@@ -25,6 +25,8 @@ public:
 	void BeginRender();
 	void EndRender();
 
+	bool should_window_close(); 
+
 private:
 	static GLFWwindow * window_;
 	static float dT_;

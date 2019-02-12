@@ -59,6 +59,7 @@ bool Engine::StartUp(const char * windowTitle, Error * error)
 	glfwSetKeyCallback(window_, Keyboard::KeyCallBack);
 	glfwSetCursorPosCallback(window_, Mouse::MousePositionCallBack);
 	glfwSetMouseButtonCallback(window_, Mouse::MouseButtonCallBack);
+	// glfwSetWindowCloseCallback(window_, *INSERT CALLBACK FUNCTION);
 
 	//Window Setup
 	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
