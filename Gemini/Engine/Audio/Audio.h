@@ -14,8 +14,6 @@ public:
 	void Initialize();
 	void LoadWAVFile();
 
-
-
 private:
 	ALCdevice  * audio_device_;
 	ALCcontext * audio_context_;

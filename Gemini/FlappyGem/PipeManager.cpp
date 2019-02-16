@@ -8,7 +8,7 @@ PipeManager::PipeManager()
 	speed_   = { 10, 10 };
 	min_max_spawn_y_ = { 284, Engine::SCREEN_HEIGHT - 284 };
 	spawned_pipes_ = 0;
-	error_->set_errorStatus(false);
+	error_ = new Error();
 }
 
 PipeManager::~PipeManager()

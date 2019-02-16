@@ -1,17 +1,4 @@
-#pragma once
-#include <iostream>
-#include <time.h>
-#include "GameManager.h"
 
-
-int main(void)
-{
-	srand(time(NULL));
-	static GameManager & gameManager = GameManager::get_instance();
-	gameManager.StartUp();
-	gameManager.PlayGame();
-	return 0;
-}
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

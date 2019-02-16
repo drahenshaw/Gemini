@@ -98,11 +98,6 @@ void Engine::Update()
 	dT_ = timeNow - prev_dT_;
 	prev_dT_ = timeNow;
 	glfwPollEvents();
-
-	if (glfwWindowShouldClose(window_))
-	{
-		glfwTerminate();
-	}
 }
 
 void Engine::BeginRender()

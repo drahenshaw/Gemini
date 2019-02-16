@@ -15,8 +15,9 @@ GameManager::~GameManager()
 
 void GameManager::StartUp()
 {
-	game_engine_->get_instance();
-	game_engine_->StartUp("Flappy Gemini", error_);
+	game_engine_->get_instance().StartUp("Flappy Gemini", error_);
+	
+	//game_engine_->StartUp("Flappy Gemini", error_);
 
 	Sprite flapper_sprite = Sprite();
 	flapper_sprite.setScale(0.70f);
@@ -32,22 +33,22 @@ void GameManager::StartUp()
 
 void GameManager::PlayGame(Error * error)
 {
-	while (!game_engine_->should_window_close())
+	while (!game_engine_->get_instance().should_window_close())
 	{
 		if (Keyboard::KeyDown(GLFW_KEY_ESCAPE))
 		{
 			break;
 		}
 
-		game_engine_->Update();
+		game_engine_->get_instance().Update();
 
 		switch (state_)
 		{
 		case GameState::START:
 		{
-			game_engine_->BeginRender();
+			game_engine_->get_instance().BeginRender();
 			start_screen_.Render();
-			game_engine_->EndRender();
+			game_engine_->get_instance().EndRender();
 
 			if (Keyboard::KeyDown(GLFW_KEY_SPACE) || Mouse::ButtonDown(GLFW_MOUSE_BUTTON_LEFT))
 			{
@@ -60,11 +61,11 @@ void GameManager::PlayGame(Error * error)
 			player_->Update();
 			pipe_manager_->Update();
 
-			game_engine_->BeginRender();
+			game_engine_->get_instance().BeginRender();
 			level_background_.Render();
 			player_->Render();
 			pipe_manager_->Render();
-			game_engine_->EndRender();
+			game_engine_->get_instance().EndRender();
 
 			bool is_colliding = pipe_manager_->CheckCollision(*player_);
 
@@ -81,11 +82,11 @@ void GameManager::PlayGame(Error * error)
 		}
 		case GameState::GAMEOVER:
 		{
-			game_engine_->BeginRender();
+			game_engine_->get_instance().BeginRender();
 			player_->Render();
 			pipe_manager_->Render();
 			end_screen_.Render();
-			game_engine_->EndRender();
+			game_engine_->get_instance().EndRender();
 
 			if (Keyboard::KeyDown(GLFW_KEY_SPACE) || Mouse::ButtonDown(GLFW_MOUSE_BUTTON_LEFT))
 			{
