@@ -10,21 +10,22 @@
 class Engine
 {
 public:	
+	// Window Width & Height
 	static int SCREEN_WIDTH;
 	static int SCREEN_HEIGHT;
-	static double get_dT();
-		
-	~Engine();
-
-	static Engine & get_instance();
-	Engine(Engine const&)		  = delete;
-	void operator=(Engine const&) = delete;
-
+	// Returns change in time each frame
+	static double get_dT();			
+	// Return Singleton Instance Engine
+	static Engine & get_instance();	
+	// Initialize method for Engine - StartUp OpenGL/GLFW
 	bool StartUp(const char * windowTitle, Error * error);
+	// Poll Events and Calculate dT each frame
 	void Update();
+	// Clear Back Buffer and Begin Rendering
 	void BeginRender();
+	// Swap Front & Back Buffer
 	void EndRender();
-
+	// Did an exit event occur?
 	bool should_window_close(); 
 
 private:
@@ -33,11 +34,11 @@ private:
 	float prev_dT_;
 
 private:
+	// Hide Constructors to Enforce Singleton Pattern
 	Engine() {};
-
+	~Engine();
+	Engine(Engine const&) = delete;
+	void operator=(Engine const&) = delete;
 };
-
-
-
 
 #endif 

@@ -8,6 +8,7 @@ int Engine::SCREEN_HEIGHT = 768;
 GLFWwindow * Engine::window_ = nullptr;
 float Engine::dT_ = 0;
 
+
 double Engine::get_dT()
 {
 	return dT_;
