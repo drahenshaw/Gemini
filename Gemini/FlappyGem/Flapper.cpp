@@ -6,7 +6,7 @@ static_assert  (kFlapForce > 0, "Dividing by FlapForce = 0");
 
 Flapper::Flapper()
 {
-	max_rotation_ = 30;
+	max_rotation_ = kAbsoluteRotation;
 	min_rotation_ = -max_rotation_;
 	flap_force_   = kFlapForce;
 }
@@ -17,13 +17,13 @@ Flapper::Flapper(Sprite sprite) : Flapper()
 
 	// Create a new bounding rectangle for the new sprite
 	Rectangle bounding_rect = Rectangle();
-	Vector3   size_offset   = Vector3(0.8, 0.6, 1); // Change to function?
+	Vector3   size_offset   = Vector3(.5, .8, 1); // Change to function?
 
 	// Scale the sprite accordingly
 	bounding_rect.set_size(*sprite_.get_size() * *sprite_.get_scale() * size_offset);
 
 	// Construct the rigidbody for the sprite
-	rigidbody_ = Rigidbody(0.8f, -10, sprite_.get_rotation(), sprite_.get_position(), sprite_.get_size(), sprite_.get_scale(), Vector3(1), bounding_rect);
+	rigidbody_ = Rigidbody(0.8f, -10, sprite_.get_rotation(), sprite_.get_position(), sprite_.get_size(), sprite_.get_scale(), Vector3(0), bounding_rect);
 }
 
 void Flapper::Update()
@@ -36,7 +36,7 @@ void Flapper::Update()
 	float next_rotation = (max_rotation_ / kFlapForce) * y_velocity;
 
 	// Check this
-	sprite_.RotateBy(100);
+	sprite_.RotateBy(-100);
 
 }
 

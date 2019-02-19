@@ -32,8 +32,9 @@ public:
 
 	void set_size(Vector3 size);
 
-	const struct Vertices get_vertices();	
+	struct Vertices get_vertices();	
 	void set_vertices(const Vertices vertices, const VertIndex index, const Vector3 modifier);
+	void set_vertices(Vector3 newVertices);
 
 private:
 	void UpdateVertices();

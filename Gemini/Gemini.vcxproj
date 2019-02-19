@@ -195,6 +195,13 @@
     <None Include="FlappyGem\packages.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="FlappyGem\Assets\alienspaceship.png" />
+    <Image Include="FlappyGem\Assets\Flat Night 4 BG.png" />
+    <Image Include="FlappyGem\Assets\pipe.png" />
+    <Image Include="FlappyGem\Assets\PressSpace.png" />
+    <Image Include="FlappyGem\Assets\Starfighter.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets" Condition="Exists('..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets')" />

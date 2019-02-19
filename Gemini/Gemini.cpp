@@ -12,7 +12,7 @@
 int main(void)
 {
 	srand(time(NULL));
-	static Engine & gameEngine = gameEngine.get_instance();
+	//static Engine & gameEngine = gameEngine.get_instance();
 	static GameManager & gameManager = gameManager.get_instance();
 	
 	gameManager.StartUp();

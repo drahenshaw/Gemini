@@ -39,14 +39,43 @@ void Sprite::Update()
 {
 }
 
+//void Sprite::Render()
+//{
+//	//Enable 2D Texture Operations and Bind those Operations to member texture_
+//	glEnable(GL_TEXTURE_2D);
+//	glBindTexture(GL_TEXTURE_2D, texture_.get_id());
+//	glLoadIdentity();
+//
+//	//Matrix Operations are done in reverse order to properly center them
+//	//TRANSLATE -> ROTATE -> SCALE
+//	glTranslatef(position_.x_, position_.y_, 0);
+//	glRotatef(rotation_, 0, 0, 1);
+//	glScalef(scale_.x_, scale_.y_, 1);
+//
+//	//Rendering
+//	glColor4f(1, 1, 1, 1);
+//	//Begin and End allow for texture coordinates to be updated.
+//	glBegin(GL_QUADS);
+//	{
+//		//Assigning the texture vertices to the corners of the image
+//		glTexCoord2f(0, 0);		glVertex2i(-texture_.get_width() / 2, -texture_.get_height() / 2);
+//		glTexCoord2f(1, 0);		glVertex2i( texture_.get_width() / 2, -texture_.get_height() / 2);
+//		glTexCoord2f(1, 1);		glVertex2i( texture_.get_width() / 2,  texture_.get_height() / 2);
+//		glTexCoord2f(0, 1);		glVertex2i(-texture_.get_width() / 2,  texture_.get_height() / 2);
+//	}
+//	glEnd();
+//
+//	//Disable 2D Texture Operations
+//	glDisable(GL_TEXTURE_2D);
+//}
+
+
 void Sprite::Render()
 {
-	//Enable 2D Texture Operations and Bind those Operations to member texture_
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texture_.get_id());
 	glLoadIdentity();
 
-	//Matrix Operations are done in reverse order to properly center them
 	//TRANSLATE -> ROTATE -> SCALE
 	glTranslatef(position_.x_, position_.y_, 0);
 	glRotatef(rotation_, 0, 0, 1);
@@ -54,20 +83,18 @@ void Sprite::Render()
 
 	//Rendering
 	glColor4f(1, 1, 1, 1);
-	//Begin and End allow for texture coordinates to be updated.
 	glBegin(GL_QUADS);
 	{
-		//Assigning the texture vertices to the corners of the image
 		glTexCoord2f(0, 0);		glVertex2i(-texture_.get_width() / 2, -texture_.get_height() / 2);
-		glTexCoord2f(1, 0);		glVertex2i( texture_.get_width() / 2, -texture_.get_height() / 2);
-		glTexCoord2f(1, 1);		glVertex2i( texture_.get_width() / 2,  texture_.get_height() / 2);
-		glTexCoord2f(0, 1);		glVertex2i(-texture_.get_width() / 2,  texture_.get_height() / 2);
+		glTexCoord2f(1, 0);		glVertex2i(texture_.get_width() / 2, -texture_.get_height() / 2);
+		glTexCoord2f(1, 1);		glVertex2i(texture_.get_width() / 2, texture_.get_height() / 2);
+		glTexCoord2f(0, 1);		glVertex2i(-texture_.get_width() / 2, texture_.get_height() / 2);
 	}
 	glEnd();
 
-	//Disable 2D Texture Operations
 	glDisable(GL_TEXTURE_2D);
 }
+
 
 //Adjust speed by a relative amount
 void Sprite::ChangeSpeedBy(float x)

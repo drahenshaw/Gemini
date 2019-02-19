@@ -30,19 +30,22 @@ Rectangle::~Rectangle()
 void Rectangle::MoveBy(Vector3 value)
 {
 	position_ += value;
+	UpdateVertices();
 }
 
 void Rectangle::MoveTo(Vector3 location)
 {
 	position_ = location;
+	UpdateVertices();
 }
 
 void Rectangle::set_size(Vector3 size)
 {
 	size_ = size;
+	UpdateVertices();
 }
 
-const struct Rectangle::Vertices Rectangle::get_vertices()
+struct Rectangle::Vertices Rectangle::get_vertices()
 {
 	return vertices_;
 }
@@ -53,24 +56,32 @@ void Rectangle::set_vertices(const Vertices vertices, const VertIndex index, con
 	{
 	case VertIndex::UPPERLEFT:
 		vertices_.upper_left_vertex_ = modifier;
+		//UpdateVertices();
 		break;
 
 	case VertIndex::LOWERLEFT:
 		vertices_.lower_left_vertex_ = modifier;
+		//UpdateVertices();
 		break;
 
 	case VertIndex::UPPERRIGHT:
 		vertices_.upper_right_vertex_ = modifier;
+		//UpdateVertices();
 		break;
 
 	case VertIndex::LOWERRIGHT:
 		vertices_.lower_right_vertex_ = modifier;
+		//UpdateVertices();
 		break;
 	default:
 		// Could log error for invalid enum value here?
 		break;
 	}
+}
 
+void Rectangle::set_vertices(Vector3 newVertices)
+{	
+	UpdateVertices();
 }
 
 void Rectangle::UpdateVertices()

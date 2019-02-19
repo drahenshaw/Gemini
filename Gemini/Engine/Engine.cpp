@@ -76,7 +76,7 @@ bool Engine::StartUp(const char * windowTitle, Error * error)
 	//Load Initial Matrix
 	glLoadIdentity(); 
 	//Camera Settings
-	glOrtho(0, width, 0, height, -10, -10);
+	glOrtho(0, width, 0, height, -10, 10);
 	glDepthRange(-10, 10);
 	//Change GL State to MODELVIEW
 	glMatrixMode(GL_MODELVIEW);
@@ -103,7 +103,7 @@ void Engine::Update()
 void Engine::BeginRender()
 {
 	//Clear back buffer with solid color
-	glClearColor(0, 0, 0, 1); 
+	glClearColor(1, 0, 0, 1); 
 	//Bitwise OR mask to clear specified buffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
 }

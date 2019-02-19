@@ -121,4 +121,21 @@
     <None Include="FlappyGem\packages.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="FlappyGem\Assets\pipe.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FlappyGem\Assets\PressSpace.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FlappyGem\Assets\Flat Night 4 BG.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FlappyGem\Assets\alienspaceship.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FlappyGem\Assets\Starfighter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
