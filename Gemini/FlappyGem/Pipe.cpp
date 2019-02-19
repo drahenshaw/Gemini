@@ -1,10 +1,11 @@
 #include "Pipe.h"
 
 Sprite * Pipe::pipe_sprite_ = nullptr;
+Error * Pipe::error_ = new Error();
 
 void Pipe::Initialize()
 {
-	pipe_sprite_ = new Sprite();
+	pipe_sprite_ = new Sprite("FlappyGem/Assets/Pipe.png", error_);
 	pipe_sprite_->setScale(0.1f);
 }
 
@@ -37,11 +38,11 @@ Pipe::Pipe(Vector3 position, Error * error) : Pipe(error)
 
 	Rectangle top_bounds = Rectangle();
 	top_bounds.set_size(Vector3(Math::AbsoluteValue(top_sprite_.get_size()->x_ * top_sprite_.get_scale()->x_), Math::AbsoluteValue(top_sprite_.get_size()->y_* top_sprite_.get_scale()->y_), 0));
-	top_rigidbody_ = Rigidbody(0, 1, top_sprite_.get_rotation(), top_sprite_.get_position(), top_sprite_.get_size(), top_sprite_.get_scale(), 1, top_bounds);
+	top_rigidbody_ = Rigidbody(1, 0, top_sprite_.get_rotation(), top_sprite_.get_position(), top_sprite_.get_size(), top_sprite_.get_scale(), 1, top_bounds);
 
 	Rectangle bottom_bounds = Rectangle();
 	bottom_bounds.set_size(Vector3(Math::AbsoluteValue(bottom_sprite_.get_size()->x_ * bottom_sprite_.get_scale()->x_), Math::AbsoluteValue(bottom_sprite_.get_size()->y_* bottom_sprite_.get_scale()->y_), 0));
-	bottom_rigidbody_ = Rigidbody(0, 1, bottom_sprite_.get_rotation(), bottom_sprite_.get_position(), bottom_sprite_.get_size(), bottom_sprite_.get_scale(), 1, bottom_bounds);
+	bottom_rigidbody_ = Rigidbody(1, 0, bottom_sprite_.get_rotation(), bottom_sprite_.get_position(), bottom_sprite_.get_size(), bottom_sprite_.get_scale(), 1, bottom_bounds);
 
 	top_rigidbody_   .AddForce(Vector3(-speed_, 0, 0));
 	bottom_rigidbody_.AddForce(Vector3(-speed_, 0, 0));
@@ -111,5 +112,6 @@ Rigidbody Pipe::get_bottom_rigidbody()
 void Pipe::set_gap(const float gap)
 {
 	gap_ = gap;
+	UpdatePosition();
 }
 

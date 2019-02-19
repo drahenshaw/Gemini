@@ -19,14 +19,15 @@ void GameManager::StartUp()
 	
 	//game_engine_->StartUp("Flappy Gemini", error_);
 
-	Sprite flapper_sprite = Sprite("FlappyGem/Assets/alienspaceship.png", Vector3(Engine::SCREEN_WIDTH / 2, Engine::SCREEN_HEIGHT / 2, 0), error_);
-	flapper_sprite.setScale(0.20f);
+	Sprite flapper_sprite = Sprite("FlappyGem/Assets/alienspaceship.png", Vector3(Engine::SCREEN_WIDTH / 2, Engine::SCREEN_HEIGHT / 2, 0), error_);	
+	flapper_sprite.setScale(0.20f);	
 	player_ = new Flapper(flapper_sprite);
 
 	pipe_manager_ = new PipeManager();
 
 	start_screen_     = Sprite("FlappyGem/Assets/PressSpace.png", Vector3(Engine::SCREEN_WIDTH / 2, Engine::SCREEN_HEIGHT / 2, 0), error_);	
 	level_background_ = Sprite("FlappyGem/Assets/Flat Night 4 BG.png", Vector3(Engine::SCREEN_WIDTH / 2, Engine::SCREEN_HEIGHT / 2, 0), error_);
+	level_background_.setScale(Vector3(1.05, 1.1, 0));
 	end_screen_ = level_background_;
 	state_ = GameState::START;
 }
@@ -48,8 +49,7 @@ void GameManager::PlayGame(Error * error)
 		{
 			game_engine_->get_instance().BeginRender();
 			start_screen_.Render();	
-			player_->Render();
-			player_->get_rigidbody().Render(Vector3(1,0,0));
+			player_->Render();			
 			game_engine_->get_instance().EndRender();
 
 			if (Keyboard::KeyDown(GLFW_KEY_SPACE) || Mouse::ButtonDown(GLFW_MOUSE_BUTTON_LEFT))
@@ -85,9 +85,9 @@ void GameManager::PlayGame(Error * error)
 		case GameState::GAMEOVER:
 		{
 			game_engine_->get_instance().BeginRender();
-			player_->Render();
-			pipe_manager_->Render();
 			end_screen_.Render();
+			player_->Render();
+			pipe_manager_->Render();			
 			game_engine_->get_instance().EndRender();
 
 			if (Keyboard::KeyDown(GLFW_KEY_SPACE) || Mouse::ButtonDown(GLFW_MOUSE_BUTTON_LEFT))
@@ -115,7 +115,7 @@ void GameManager::set_game_state(const GameState & state)
 {
 	state_ = state;
 
-	if (state == GameState::START)
+	if (state == GameState::GAMEPLAY)
 	{
 		player_->Reset();
 		pipe_manager_->Reset();

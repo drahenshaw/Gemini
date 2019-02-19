@@ -1,6 +1,6 @@
 #include "Flapper.h"
 
-constexpr float kAbsoluteRotation = 30; 
+constexpr float kAbsoluteRotation = 50; 
 constexpr float kFlapForce = 750;
 static_assert  (kFlapForce > 0, "Dividing by FlapForce = 0");
 
@@ -17,7 +17,7 @@ Flapper::Flapper(Sprite sprite) : Flapper()
 
 	// Create a new bounding rectangle for the new sprite
 	Rectangle bounding_rect = Rectangle();
-	Vector3   size_offset   = Vector3(.5, .8, 1); // Change to function?
+	Vector3   size_offset   = Vector3(.8, .5, 1); // Change to function?
 
 	// Scale the sprite accordingly
 	bounding_rect.set_size(*sprite_.get_size() * *sprite_.get_scale() * size_offset);
@@ -36,7 +36,7 @@ void Flapper::Update()
 	float next_rotation = (max_rotation_ / kFlapForce) * y_velocity;
 
 	// Check this
-	sprite_.RotateBy(-100);
+	sprite_.RotateBy(-50);
 
 }
 

@@ -9,11 +9,15 @@ PipeManager::PipeManager()
 	min_max_spawn_y_ = { 284, Engine::SCREEN_HEIGHT - 284 };
 	spawned_pipes_ = 0;
 	error_ = new Error();
+	{
+		Pipe::Initialize();
+		CreatePipe();
+	}
 }
 
 PipeManager::~PipeManager()
 {
-	for (GLushort i = 0; i < pipes_.size(); ++i)
+	for (unsigned int i = 0; i < pipes_.size(); ++i)
 	{
 		delete pipes_[i];
 	}
@@ -21,9 +25,9 @@ PipeManager::~PipeManager()
 
 void PipeManager::Update()
 {
-	std::vector<GLushort> pipes_delete;
+	std::vector<unsigned int> pipes_delete;
 
-	for (GLushort i = 0; i < pipes_.size(); ++i)
+	for (unsigned int i = 0; i < pipes_.size(); ++i)
 	{
 		// Update each Pipe
 		pipes_[i]->Update();
@@ -45,7 +49,7 @@ void PipeManager::Update()
 
 		// Clean Up		
 
-		for (GLushort i = 0; i < pipes_delete.size(); ++i)
+		for (unsigned int i = 0; i < pipes_delete.size(); ++i)
 		{
 			// Delete nth pipe via Pipe pointer
 			delete pipes_[pipes_delete[i]];
@@ -58,7 +62,7 @@ void PipeManager::Update()
 
 void PipeManager::Render()
 {
-	for (GLushort i = 0; i < pipes_.size(); ++i)
+	for (unsigned int i = 0; i < pipes_.size(); ++i)
 	{
 		pipes_[i]->Render();
 	}
@@ -66,7 +70,7 @@ void PipeManager::Render()
 
 bool PipeManager::CheckCollision(Flapper & flapper)
 {
-	for (GLushort i = 0; i < pipes_.size(); ++i)
+	for (unsigned int i = 0; i < pipes_.size(); ++i)
 	{
 		if (Rigidbody::IsColliding(flapper.get_rigidbody(), pipes_[i]->get_top_rigidbody())
 		||  Rigidbody::IsColliding(flapper.get_rigidbody(), pipes_[i]->get_bottom_rigidbody()))
@@ -79,7 +83,7 @@ bool PipeManager::CheckCollision(Flapper & flapper)
 
 void PipeManager::Reset()
 {
-	for (GLushort i = 0; i < pipes_.size(); ++i)
+	for (unsigned int i = 0; i < pipes_.size(); ++i)
 	{
 		delete pipes_[i];
 	}
@@ -97,9 +101,10 @@ void PipeManager::CreatePipe()
 	spawn.y = (rand() % (int)(min_max_spawn_y_.y - min_max_spawn_y_.x)) + min_max_spawn_y_.x;
 
 	Pipe * pipe = new Pipe(Vector3(Engine::SCREEN_WIDTH, spawn.y, 0), error_);
+	pipe->set_gap(current_.y);
+	pipes_.push_back(pipe);
 	if (error_->IsSet()) return;
 
-	pipe->set_gap(current_.y);
 	spawned_pipes_++;
 
 	if (spawned_pipes_ % 2 == 0)

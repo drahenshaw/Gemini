@@ -65,7 +65,7 @@ bool Rigidbody::IsColliding(const Rigidbody & rigidbody_a, const Rigidbody & rig
 		b_max = Math::FindMax(b_scalars);
 		b_min = Math::FindMin(b_scalars);
 
-		if (a_max <= b_min && a_min <= b_max) { return false; }			
+		if (!(a_max >= b_min && a_min <= b_max)) { return false; }			
 	}
 
 	return true;
@@ -84,7 +84,7 @@ Rigidbody::Rigidbody(float friction, float gravity, float * rotation, Vector3 * 
 	rotation_  = rotation;	
 	last_rotation_ = *rotation;
 
-	position_ = position;
+	position_  = position;
 	size_      = size;
 	scale_     = scale;
 	velocity_  = velocity;

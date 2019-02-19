@@ -9,7 +9,7 @@ class Pipe
 {
 public:
 	static Sprite * pipe_sprite_;
-	void Initialize();
+	static void Initialize();
 
 	Pipe(Error * error);
 	Pipe(Vector3 position, Error * error);
@@ -37,6 +37,7 @@ private:
 	Sprite bottom_sprite_;
 	Rigidbody top_rigidbody_;
 	Rigidbody bottom_rigidbody_;
+	static Error * error_;
 };
 
 
