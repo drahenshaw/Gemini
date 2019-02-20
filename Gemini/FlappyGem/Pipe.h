@@ -4,6 +4,7 @@
 #include "../Engine/Graphics/Sprite.h"
 #include "../Engine/Physics/Rigidbody.h"
 #include "../Engine/Math/Vector3.h"
+#include "PipeSprite.h"
 
 class Pipe
 {
@@ -13,9 +14,13 @@ public:
 
 	Pipe(Error * error);
 	Pipe(Vector3 position, Error * error);
+	~Pipe();
 	
 	void Update();
 	void Render();
+
+	bool isOnScreen();
+	
 
 	void MoveTo(Vector3 position);
 	void MoveBy(Vector3 offset);
@@ -33,8 +38,8 @@ private:
 	float gap_;
 	float speed_;
 	Vector3 position_;
-	Sprite top_sprite_;
-	Sprite bottom_sprite_;
+	Sprite * top_sprite_;
+	Sprite * bottom_sprite_;
 	Rigidbody top_rigidbody_;
 	Rigidbody bottom_rigidbody_;
 	static Error * error_;

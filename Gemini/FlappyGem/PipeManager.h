@@ -2,6 +2,7 @@
 #define GEMINI_PIPEMANAGER
 
 #include "Pipe.h"
+#include "PipeSprite.h"
 #include "Flapper.h"
 #include <vector>
 
@@ -34,7 +35,9 @@ private:
 	void CreatePipe();
 
 private:
-	std::vector<Pipe*> pipes_;		
+	std::vector<Pipe*> pipes_;	
+	//std::vector<PipeSprite*>pipeSprites_;
+	
 	struct Separation initial_;
 	struct Separation current_;
 	struct Separation minimum_;

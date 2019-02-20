@@ -158,6 +158,7 @@
     <ClInclude Include="Engine\Audio\Audio.h" />
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="Engine\Error.h" />
+    <ClInclude Include="Engine\Graphics\GraphicsComponent.h" />
     <ClInclude Include="Engine\Graphics\Sprite.h" />
     <ClInclude Include="Engine\Graphics\Texture.h" />
     <ClInclude Include="Engine\IO\Keyboard.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="FlappyGem\Header.h" />
     <ClInclude Include="FlappyGem\Pipe.h" />
     <ClInclude Include="FlappyGem\PipeManager.h" />
+    <ClInclude Include="FlappyGem\PipeSprite.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Audio\Audio.cpp" />
@@ -189,6 +191,7 @@
     <ClCompile Include="FlappyGem\GameManager.cpp" />
     <ClCompile Include="FlappyGem\Pipe.cpp" />
     <ClCompile Include="FlappyGem\PipeManager.cpp" />
+    <ClCompile Include="FlappyGem\PipeSprite.cpp" />
     <ClCompile Include="Gemini.cpp" />
   </ItemGroup>
   <ItemGroup>

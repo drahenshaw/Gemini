@@ -101,6 +101,7 @@ void PipeManager::CreatePipe()
 	spawn.y = (rand() % (int)(min_max_spawn_y_.y - min_max_spawn_y_.x)) + min_max_spawn_y_.x;
 
 	Pipe * pipe = new Pipe(Vector3(Engine::SCREEN_WIDTH, spawn.y, 0), error_);
+	//PipeSprite * pipe = new PipeSprite("FlappyGem/Assets/pipe.png",Vector3(Engine::SCREEN_WIDTH, spawn.y, 0), error_);
 	pipe->set_gap(current_.y);
 	pipes_.push_back(pipe);
 	if (error_->IsSet()) return;

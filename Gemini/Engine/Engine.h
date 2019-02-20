@@ -27,6 +27,8 @@ public:
 	void EndRender();
 	// Did an exit event occur?
 	bool should_window_close(); 
+	// Destroy Instance and Terminate OpenGL
+	~Engine();
 
 private:
 	static GLFWwindow * window_;
@@ -35,8 +37,7 @@ private:
 
 private:
 	// Hide Constructors to Enforce Singleton Pattern
-	Engine() {};
-	~Engine();
+	Engine() {};	
 	Engine(Engine const&) = delete;
 	void operator=(Engine const&) = delete;
 };

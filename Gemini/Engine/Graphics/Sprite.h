@@ -5,9 +5,10 @@
 #include "Texture.h"
 #include "../Math/Vector3.h"
 #include "../Error.h"
+#include "GraphicsComponent.h"
 
 
-class Sprite
+class Sprite : public GraphicsComponent
 {
 public:
 	Sprite();
@@ -15,7 +16,7 @@ public:
 	Sprite(std::string file_path, Vector3 position, Error * error);
 
 	void Update();
-	void Render();
+	virtual void Render();
 
 	void ChangeSpeedBy(float x);
 	void ChangeSpeedTo(float x);
@@ -43,7 +44,7 @@ public:
 	Vector3* get_scale();
 	Vector3* get_size();
 
-private:
+protected:
 	Texture texture_;
 
 	float speed_;

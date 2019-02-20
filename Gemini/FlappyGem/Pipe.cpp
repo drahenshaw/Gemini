@@ -5,7 +5,7 @@ Error * Pipe::error_ = new Error();
 
 void Pipe::Initialize()
 {
-	pipe_sprite_ = new Sprite("FlappyGem/Assets/Pipe.png", error_);
+	pipe_sprite_ = new PipeSprite("FlappyGem/Assets/Pipe.png", error_);
 	pipe_sprite_->setScale(0.1f);
 }
 
@@ -18,8 +18,8 @@ Pipe::Pipe(Error * error)
 		return;
 	}
 
-	top_sprite_    = Sprite(*pipe_sprite_);
-	bottom_sprite_ = Sprite(*pipe_sprite_);
+	top_sprite_    = new PipeSprite(*pipe_sprite_);
+	bottom_sprite_ = new PipeSprite(*pipe_sprite_);
 
 	gap_ = 500;
 	speed_ = 200;
@@ -34,18 +34,23 @@ Pipe::Pipe(Vector3 position, Error * error) : Pipe(error)
 
 	position_ = position + Vector3(get_width(), 0, 0);
 	UpdatePosition();
-	top_sprite_.FlipVertical();
+	top_sprite_->FlipVertical();
 
 	Rectangle top_bounds = Rectangle();
-	top_bounds.set_size(Vector3(Math::AbsoluteValue(top_sprite_.get_size()->x_ * top_sprite_.get_scale()->x_), Math::AbsoluteValue(top_sprite_.get_size()->y_* top_sprite_.get_scale()->y_), 0));
-	top_rigidbody_ = Rigidbody(1, 0, top_sprite_.get_rotation(), top_sprite_.get_position(), top_sprite_.get_size(), top_sprite_.get_scale(), 1, top_bounds);
+	top_bounds.set_size(Vector3(Math::AbsoluteValue(top_sprite_->get_size()->x_ * top_sprite_->get_scale()->x_), Math::AbsoluteValue(top_sprite_->get_size()->y_* top_sprite_->get_scale()->y_), 0));
+	top_rigidbody_ = Rigidbody(1, 0, top_sprite_->get_rotation(), top_sprite_->get_position(), top_sprite_->get_size(), top_sprite_->get_scale(), 1, top_bounds);
 
 	Rectangle bottom_bounds = Rectangle();
-	bottom_bounds.set_size(Vector3(Math::AbsoluteValue(bottom_sprite_.get_size()->x_ * bottom_sprite_.get_scale()->x_), Math::AbsoluteValue(bottom_sprite_.get_size()->y_* bottom_sprite_.get_scale()->y_), 0));
-	bottom_rigidbody_ = Rigidbody(1, 0, bottom_sprite_.get_rotation(), bottom_sprite_.get_position(), bottom_sprite_.get_size(), bottom_sprite_.get_scale(), 1, bottom_bounds);
+	bottom_bounds.set_size(Vector3(Math::AbsoluteValue(bottom_sprite_->get_size()->x_ * bottom_sprite_->get_scale()->x_), Math::AbsoluteValue(bottom_sprite_->get_size()->y_* bottom_sprite_->get_scale()->y_), 0));
+	bottom_rigidbody_ = Rigidbody(1, 0, bottom_sprite_->get_rotation(), bottom_sprite_->get_position(), bottom_sprite_->get_size(), bottom_sprite_->get_scale(), 1, bottom_bounds);
 
 	top_rigidbody_   .AddForce(Vector3(-speed_, 0, 0));
 	bottom_rigidbody_.AddForce(Vector3(-speed_, 0, 0));
+}
+
+Pipe::~Pipe()
+{
+
 }
 
 void Pipe::Update()
@@ -56,14 +61,19 @@ void Pipe::Update()
 
 void Pipe::Render()
 {
-	top_sprite_   .Render();
-	bottom_sprite_.Render();
+	top_sprite_   ->Render();
+	bottom_sprite_->Render();
 
 #if defined _DEBUG
 	top_rigidbody_   .Render(Vector3(0, 0, 0));
 	bottom_rigidbody_.Render(Vector3(0, 0, 0));
 #endif
 
+}
+
+bool Pipe::isOnScreen()
+{
+	return !(position_.x_ < -(get_width() / 2));
 }
 
 void Pipe::MoveTo(Vector3 position)
@@ -81,22 +91,22 @@ void Pipe::MoveBy(Vector3 offset)
 void Pipe::UpdatePosition()
 {
 	Vector3 top_position  = position_;
-	top_position.y_ += (gap_ / 2) + Math::AbsoluteValue(top_sprite_.get_size()->y_ * top_sprite_.get_scale()->y_ / 2);
-	top_sprite_.MoveTo(top_position);
+	top_position.y_ += (gap_ / 2) + Math::AbsoluteValue(top_sprite_->get_size()->y_ * top_sprite_->get_scale()->y_ / 2);
+	top_sprite_->MoveTo(top_position);
 
 	Vector3 bot_position = position_;
-	bot_position.y_ -= (gap_ / 2) + Math::AbsoluteValue(top_sprite_.get_size()->y_ * top_sprite_.get_scale()->y_ / 2);
-	bottom_sprite_.MoveTo(bot_position);	
+	bot_position.y_ -= (gap_ / 2) + Math::AbsoluteValue(top_sprite_->get_size()->y_ * top_sprite_->get_scale()->y_ / 2);
+	bottom_sprite_->MoveTo(bot_position);	
 }
 
 float Pipe::get_positon_x()
 {
-	return top_sprite_.get_position()->x_;
+	return top_sprite_->get_position()->x_;
 }
 
 float Pipe::get_width()
 {
-	return (top_sprite_.get_size()->x_ * top_sprite_.get_scale()->x_);
+	return (top_sprite_->get_size()->x_ * top_sprite_->get_scale()->x_);
 }
 
 Rigidbody Pipe::get_top_rigidbody()
